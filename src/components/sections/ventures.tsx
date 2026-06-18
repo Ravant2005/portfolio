@@ -7,6 +7,7 @@ import { ArrowUpRight, Check } from "lucide-react";
 import { SectionHeader } from "@/components/origami/section-header";
 import { OrigamiReveal } from "@/components/origami/origami-reveal";
 import { FoldCorner, CreaseLine, InkSplat } from "@/components/origami/decor";
+import { TiltCard } from "@/components/origami/tilt-card";
 import { cn } from "@/lib/utils";
 import { ventures } from "@/lib/portfolio-data";
 
@@ -51,6 +52,7 @@ export function Ventures() {
                 delay={i * 120}
                 className="h-full"
               >
+                <TiltCard max={8} className="h-full rounded-3xl">
                 <article
                   className={cn(
                     "group relative flex h-full flex-col overflow-hidden rounded-3xl border bg-paper-light/80 p-6 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 sm:p-8",
@@ -143,6 +145,7 @@ export function Ventures() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </article>
+                </TiltCard>
               </OrigamiReveal>
             );
           })}

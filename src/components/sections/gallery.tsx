@@ -5,6 +5,7 @@ import Image from "next/image";
 import { SectionHeader } from "@/components/origami/section-header";
 import { OrigamiReveal } from "@/components/origami/origami-reveal";
 import { FoldCorner, CreaseLine, InkSplat } from "@/components/origami/decor";
+import { TiltCard } from "@/components/origami/tilt-card";
 import { gallery } from "@/lib/portfolio-data";
 
 export function Gallery() {
@@ -28,14 +29,15 @@ export function Gallery() {
               delay={i * 110}
               className={i === 1 ? "sm:col-span-2 lg:col-span-1" : ""}
             >
-              <figure className="group relative overflow-hidden rounded-2xl border border-border bg-paper-light shadow-fold transition-all duration-500 hover:-translate-y-1 hover:shadow-fold-lg">
+              <TiltCard max={11} className="rounded-2xl">
+              <figure className="group relative overflow-hidden rounded-2xl border border-border bg-paper-light shadow-fold transition-all duration-500 hover:shadow-fold-lg">
                 <div className="relative aspect-[4/5] w-full">
                   <Image
                     src={g.src}
                     alt={g.alt}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.08]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-ink/5 to-transparent" />
                   <FoldCorner size={26} position="top-right" />
@@ -49,6 +51,7 @@ export function Gallery() {
                   </p>
                 </figcaption>
               </figure>
+              </TiltCard>
             </OrigamiReveal>
           ))}
         </div>

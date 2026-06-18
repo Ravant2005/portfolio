@@ -6,10 +6,15 @@ import { Menu, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { navLinks, profile } from "@/lib/portfolio-data";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetClose } from "@/components/ui/sheet";
+import { useActiveSection } from "@/hooks/use-active-section";
+import { MagneticButton } from "@/components/origami/magnetic-button";
+
+const sectionIds = ["about", "ventures", "experience", "projects", "skills", "achievements", "contact"];
 
 export function Nav() {
   const [scrolled, setScrolled] = React.useState(false);
   const [open, setOpen] = React.useState(false);
+  const active = useActiveSection(sectionIds);
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -46,31 +51,46 @@ export function Nav() {
           </span>
         </Link>
 
-        {/* Desktop links */}
+        {/* Desktop links with active highlighting */}
         <div className="hidden items-center gap-1 lg:flex">
-          {navLinks.map((link, i) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="group relative rounded-md px-3 py-2 text-sm font-medium text-ink-wash transition-colors hover:text-ink"
-            >
-              <span className="font-mono text-[10px] text-cinnabar/70 mr-1.5">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              {link.label}
-              <span className="absolute inset-x-3 -bottom-0.5 h-px origin-left scale-x-0 bg-cinnabar transition-transform duration-300 group-hover:scale-x-100" />
-            </Link>
-          ))}
+          {navLinks.map((link, i) => {
+            const isActive = active === link.href.replace("#", "");
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "group relative rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-ink",
+                  isActive ? "nav-active" : "text-ink-wash"
+                )}
+              >
+                <span
+                  className={cn(
+                    "font-mono text-[10px] mr-1.5 transition-colors",
+                    isActive ? "text-cinnabar" : "text-cinnabar/70"
+                  )}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                {link.label}
+                <span
+                  className={cn(
+                    "absolute inset-x-3 -bottom-0.5 h-px origin-left bg-cinnabar transition-transform duration-300",
+                    isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                  )}
+                />
+              </Link>
+            );
+          })}
         </div>
 
         <div className="flex items-center gap-3">
-          <Link
-            href="#contact"
-            className="hidden items-center gap-1.5 rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-paper-light shadow-fold transition-all duration-300 hover:bg-cinnabar hover:shadow-fold-lg sm:inline-flex"
-          >
-            Let&apos;s talk
-            <ArrowUpRight className="h-4 w-4" />
-          </Link>
+          <div className="hidden sm:block">
+            <MagneticButton href="#contact" variant="primary" className="px-5 py-2.5">
+              Let&apos;s talk
+              <ArrowUpRight className="h-4 w-4" />
+            </MagneticButton>
+          </div>
 
           {/* Mobile menu */}
           <Sheet open={open} onOpenChange={setOpen}>
@@ -96,21 +116,34 @@ export function Nav() {
                     </p>
                   </div>
                 </div>
-                <nav className="flex flex-1 flex-col gap-1 p-4">
-                  {navLinks.map((link, i) => (
-                    <SheetClose asChild key={link.href}>
-                      <Link
-                        href={link.href}
-                        className="group flex items-center gap-3 rounded-lg px-4 py-3.5 text-base font-medium text-ink-wash transition-colors hover:bg-paper-deep hover:text-ink"
-                      >
-                        <span className="font-mono text-xs text-cinnabar">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        {link.label}
-                        <ArrowUpRight className="ml-auto h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100" />
-                      </Link>
-                    </SheetClose>
-                  ))}
+                <nav className="flex-1 flex-col gap-1 p-4">
+                  {navLinks.map((link, i) => {
+                    const isActive = active === link.href.replace("#", "");
+                    return (
+                      <SheetClose asChild key={link.href}>
+                        <Link
+                          href={link.href}
+                          className={cn(
+                            "group flex items-center gap-3 rounded-lg px-4 py-3.5 text-base font-medium transition-colors",
+                            isActive
+                              ? "bg-cinnabar/10 text-cinnabar"
+                              : "text-ink-wash hover:bg-paper-deep hover:text-ink"
+                          )}
+                        >
+                          <span className="font-mono text-xs text-cinnabar">
+                            {String(i + 1).padStart(2, "0")}
+                          </span>
+                          {link.label}
+                          {isActive && (
+                            <span className="ml-auto h-1.5 w-1.5 rounded-full bg-cinnabar animate-glow-pulse" />
+                          )}
+                          {!isActive && (
+                            <ArrowUpRight className="ml-auto h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100" />
+                          )}
+                        </Link>
+                      </SheetClose>
+                    );
+                  })}
                 </nav>
                 <div className="border-t border-border p-6">
                   <SheetClose asChild>

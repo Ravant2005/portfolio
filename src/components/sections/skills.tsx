@@ -4,6 +4,8 @@ import * as React from "react";
 import { SectionHeader } from "@/components/origami/section-header";
 import { OrigamiReveal } from "@/components/origami/origami-reveal";
 import { FoldCorner, CreaseLine, InkSplat } from "@/components/origami/decor";
+import { TiltCard } from "@/components/origami/tilt-card";
+import { Marquee } from "@/components/origami/marquee";
 import { cn } from "@/lib/utils";
 import { skillGroups } from "@/lib/portfolio-data";
 
@@ -71,7 +73,8 @@ export function Skills() {
                 delay={(i % 3) * 100}
                 className="h-full"
               >
-                <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-paper-light/80 p-5 shadow-fold backdrop-blur-sm transition-all duration-400 hover:-translate-y-1 hover:bg-paper-light hover:shadow-fold-lg sm:p-6">
+              <TiltCard max={9} className="h-full rounded-2xl">
+                <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-paper-light/80 p-5 shadow-fold backdrop-blur-sm transition-all duration-400 hover:bg-paper-light hover:shadow-fold-lg sm:p-6">
                   <FoldCorner size={24} position="top-right" />
 
                   <div className="flex items-center gap-3">
@@ -121,10 +124,22 @@ export function Skills() {
                     )}
                   />
                 </div>
+              </TiltCard>
               </OrigamiReveal>
             );
           })}
         </div>
+
+        {/* Infinite skills marquee strip */}
+        <OrigamiReveal variant="unfold-up" gentle delay={120} className="mt-10">
+          <Marquee
+            items={[
+              "LangChain", "RAG", "Multi-Agent Systems", "FastAPI", "Next.js",
+              "Hugging Face", "OpenAI API", "Polygon", "IPFS", "Supabase",
+              "Generative AI", "Prompt Engineering", "Smart Contracts", "CI/CD",
+            ]}
+          />
+        </OrigamiReveal>
       </div>
     </section>
   );

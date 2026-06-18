@@ -4,37 +4,121 @@ import * as React from "react";
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight, MapPin, Sparkles } from "lucide-react";
 import { InkReveal, OrigamiReveal } from "@/components/origami/origami-reveal";
-import { PaperCrane, InkSplat, CreaseLine, InkSeal, FoldCorner } from "@/components/origami/decor";
+import {
+  PaperCrane,
+  InkSplat,
+  CreaseLine,
+  InkSeal,
+  FoldCorner,
+} from "@/components/origami/decor";
+import { Crane3D } from "@/components/origami/crane-3d";
+import { Counter } from "@/components/origami/counter";
+import { MagneticButton } from "@/components/origami/magnetic-button";
+import { StaggerText } from "@/components/origami/stagger-text";
 import { profile, stats } from "@/lib/portfolio-data";
 
+/** Parse a stat value into a numeric target + display parts for the Counter. */
+function parseStat(value: string) {
+  // e.g. "₹1,00,000", "50+", "2,000+", "90+"
+  const match = value.match(/^([^\d]*)([\d,]+)(.*)$/);
+  if (!match) return { numeric: 0, prefix: "", suffix: value, indian: false };
+  const prefix = match[1];
+  const numStr = match[2].replace(/,/g, "");
+  const suffix = match[3];
+  const numeric = parseInt(numStr, 10);
+  const indian = prefix.includes("₹");
+  return { numeric, prefix, suffix, indian };
+}
+
 export function Hero() {
+  const sectionRef = React.useRef<HTMLElement | null>(null);
+  const [parallax, setParallax] = React.useState({ x: 0, y: 0 });
+
+  // Mouse-driven 3D parallax for the hero (background blobs + crane drift)
+  React.useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const onMove = (e: MouseEvent) => {
+      const rect = el.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width - 0.5; // -0.5..0.5
+      const py = (e.clientY - rect.top) / rect.height - 0.5;
+      setParallax({ x: px, y: py });
+    };
+    el.addEventListener("mousemove", onMove);
+    return () => el.removeEventListener("mousemove", onMove);
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       id="top"
       className="relative min-h-screen w-full overflow-hidden bg-paper paper-grain paper-fibers"
     >
-      {/* Ambient ink-wash blobs */}
-      <InkSplat className="-left-40 top-10 h-[520px] w-[520px]" opacity={0.1} />
-      <InkSplat className="-right-32 bottom-0 h-[640px] w-[640px]" color="var(--cinnabar)" opacity={0.06} />
-      <InkSplat className="left-1/3 top-1/2 h-[380px] w-[380px]" color="var(--moss)" opacity={0.05} />
+      {/* Ambient ink-wash blobs with parallax depth */}
+      <div
+        className="pointer-events-none absolute -left-40 top-10 h-[520px] w-[520px]"
+        style={{
+          transform: `translate(${parallax.x * 30}px, ${parallax.y * 30}px)`,
+          transition: "transform 200ms ease-out",
+        }}
+      >
+        <InkSplat className="h-full w-full" opacity={0.1} />
+      </div>
+      <div
+        className="pointer-events-none absolute -right-32 bottom-0 h-[640px] w-[640px]"
+        style={{
+          transform: `translate(${parallax.x * -45}px, ${parallax.y * -45}px)`,
+          transition: "transform 200ms ease-out",
+        }}
+      >
+        <InkSplat className="h-full w-full" color="var(--cinnabar)" opacity={0.06} />
+      </div>
+      <div
+        className="pointer-events-none absolute left-1/3 top-1/2 h-[380px] w-[380px]"
+        style={{
+          transform: `translate(${parallax.x * 20}px, ${parallax.y * 20}px)`,
+          transition: "transform 200ms ease-out",
+        }}
+      >
+        <InkSplat className="h-full w-full" color="var(--moss)" opacity={0.05} />
+      </div>
 
-      {/* Floating paper cranes */}
-      <PaperCrane
-        className="absolute left-[6%] top-[22%] hidden text-ink/40 md:block"
-        size={64}
-      />
-      <PaperCrane
-        className="absolute right-[8%] top-[30%] hidden text-cinnabar/50 md:block"
-        size={48}
-      />
-      <PaperCrane
-        className="absolute left-[14%] bottom-[14%] hidden text-moss/50 lg:block"
-        size={40}
-      />
-      <PaperCrane
-        className="absolute right-[18%] bottom-[22%] hidden text-gold/60 lg:block"
-        size={56}
-      />
+      {/* Floating paper cranes with parallax */}
+      <div
+        className="pointer-events-none absolute left-[6%] top-[22%] hidden md:block"
+        style={{
+          transform: `translate(${parallax.x * 50}px, ${parallax.y * 50}px)`,
+          transition: "transform 200ms ease-out",
+        }}
+      >
+        <PaperCrane className="text-ink/40" size={64} />
+      </div>
+      <div
+        className="pointer-events-none absolute right-[8%] top-[30%] hidden md:block"
+        style={{
+          transform: `translate(${parallax.x * -60}px, ${parallax.y * -60}px)`,
+          transition: "transform 200ms ease-out",
+        }}
+      >
+        <PaperCrane className="text-cinnabar/50" size={48} />
+      </div>
+      <div
+        className="pointer-events-none absolute right-[18%] bottom-[22%] hidden lg:block"
+        style={{
+          transform: `translate(${parallax.x * -35}px, ${parallax.y * -35}px)`,
+          transition: "transform 200ms ease-out",
+        }}
+      >
+        <PaperCrane className="text-gold/60" size={56} />
+      </div>
+
+      {/* Self-drawing 3D crane — hero centerpiece accent */}
+      <div className="pointer-events-none absolute right-[6%] top-[14%] hidden xl:block">
+        <Crane3D size={180} />
+      </div>
 
       {/* Decorative crease grid */}
       <CreaseLine orientation="horizontal" className="top-1/3 opacity-50" />
@@ -53,7 +137,7 @@ export function Hero() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-cinnabar" />
               </span>
               <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-ink-wash">
-                Open to AI/ML & GenAI roles
+                Open to AI/ML &amp; GenAI roles
               </span>
             </span>
             <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.2em] text-ink-soft">
@@ -67,12 +151,19 @@ export function Hero() {
         <div className="relative">
           <h1 className="font-display font-semibold leading-[0.92] tracking-[-0.02em] text-ink">
             <span className="block overflow-hidden">
-              <InkReveal as="span" className="block text-[14vw] sm:text-[12vw] md:text-[10vw] lg:text-[8.5vw] xl:text-[128px]">
+              <InkReveal
+                as="span"
+                className="block text-[14vw] sm:text-[12vw] md:text-[10vw] lg:text-[8.5vw] xl:text-[128px]"
+              >
                 S. Ravant
               </InkReveal>
             </span>
             <span className="block overflow-hidden">
-              <InkReveal as="span" delay={180} className="block text-[14vw] sm:text-[12vw] md:text-[10vw] lg:text-[8.5vw] xl:text-[128px] gold-leaf">
+              <InkReveal
+                as="span"
+                delay={180}
+                className="block text-[14vw] sm:text-[12vw] md:text-[10vw] lg:text-[8.5vw] xl:text-[128px] gold-leaf"
+              >
                 Vignesh
               </InkReveal>
             </span>
@@ -88,12 +179,16 @@ export function Hero() {
           </OrigamiReveal>
         </div>
 
-        {/* Role + tagline */}
+        {/* Role + tagline with staggered word reveal */}
         <OrigamiReveal variant="unfold-up" gentle delay={360} className="mt-8 max-w-3xl">
           <p className="font-display text-2xl font-medium text-ink sm:text-3xl md:text-4xl">
-            AI/ML Engineer crafting{" "}
+            <StaggerText
+              text="AI/ML Engineer crafting"
+              delay={600}
+              className="text-ink"
+            />{" "}
             <span className="relative whitespace-nowrap text-cinnabar">
-              generative AI
+              <StaggerText text="generative AI" delay={900} className="text-cinnabar" />
               <svg
                 className="absolute -bottom-1.5 left-0 h-2 w-full text-cinnabar/40"
                 viewBox="0 0 200 8"
@@ -106,55 +201,71 @@ export function Hero() {
                   stroke="currentColor"
                   strokeWidth="2"
                   strokeLinecap="round"
+                  style={{
+                    strokeDasharray: 220,
+                    strokeDashoffset: 220,
+                    animation: "draw-path 1.4s ease 1.4s forwards",
+                  }}
                 />
               </svg>
             </span>{" "}
-            &amp; multi-agent systems.
+            <StaggerText text="& multi-agent systems." delay={1100} className="text-ink" />
           </p>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
-            {profile.bio}
+            <StaggerText
+              text={profile.bio}
+              delay={1300}
+              stagger={12}
+              className="text-ink-soft"
+            />
           </p>
         </OrigamiReveal>
 
-        {/* CTA row */}
+        {/* CTA row — magnetic buttons */}
         <OrigamiReveal variant="unfold-up" gentle delay={520} className="mt-10">
           <div className="flex flex-wrap items-center gap-3">
-            <Link
-              href="#projects"
-              className="group inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-semibold text-paper-light shadow-fold transition-all duration-300 hover:bg-cinnabar hover:shadow-fold-lg"
-            >
+            <MagneticButton href="#projects" variant="primary">
               Unfold the work
-              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
-            <Link
-              href="#ventures"
-              className="group inline-flex items-center gap-2 rounded-full border border-ink/25 bg-paper-light/50 px-7 py-3.5 text-sm font-semibold text-ink backdrop-blur-sm transition-all duration-300 hover:border-ink hover:bg-paper-light"
-            >
+              <ArrowUpRight className="h-4 w-4" />
+            </MagneticButton>
+            <MagneticButton href="#ventures" variant="ghost">
               <Sparkles className="h-4 w-4 text-gold" />
               See the ventures
-            </Link>
+            </MagneticButton>
           </div>
         </OrigamiReveal>
 
-        {/* Stats row — unfolding paper strip */}
+        {/* Stats row — with animated counters */}
         <OrigamiReveal variant="unfold-up" delay={700} className="mt-16 md:mt-20">
-          <div className="relative grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border/40 shadow-fold md:grid-cols-4">
+          <div className="group relative grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border/40 shadow-fold md:grid-cols-4">
             <FoldCorner size={28} position="top-right" />
-            {stats.map((s, i) => (
-              <div
-                key={s.label}
-                className="group relative bg-paper-light/80 p-5 backdrop-blur-sm transition-colors hover:bg-paper-light sm:p-6"
-              >
-                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-cinnabar">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="mt-2 font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-                  {s.value}
-                </p>
-                <p className="mt-1 text-xs font-medium text-ink-wash sm:text-sm">{s.label}</p>
-                <p className="text-[11px] text-ink-soft">{s.sub}</p>
-              </div>
-            ))}
+            {stats.map((s, i) => {
+              const parsed = parseStat(s.value);
+              return (
+                <div
+                  key={s.label}
+                  className="spotlight-card relative bg-paper-light/80 p-5 backdrop-blur-sm transition-colors hover:bg-paper-light sm:p-6"
+                >
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-cinnabar">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="mt-2 font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+                    {parsed.numeric > 0 ? (
+                      <Counter
+                        target={parsed.numeric}
+                        prefix={parsed.prefix}
+                        suffix={parsed.suffix}
+                        indian={parsed.indian}
+                      />
+                    ) : (
+                      s.value
+                    )}
+                  </p>
+                  <p className="mt-1 text-xs font-medium text-ink-wash sm:text-sm">{s.label}</p>
+                  <p className="text-[11px] text-ink-soft">{s.sub}</p>
+                </div>
+              );
+            })}
           </div>
         </OrigamiReveal>
       </div>

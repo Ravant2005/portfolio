@@ -5,6 +5,7 @@ import { ArrowUpRight, Award, Check, Star } from "lucide-react";
 import { SectionHeader } from "@/components/origami/section-header";
 import { OrigamiReveal } from "@/components/origami/origami-reveal";
 import { FoldCorner, CreaseLine, InkSplat, InkSeal } from "@/components/origami/decor";
+import { TiltCard } from "@/components/origami/tilt-card";
 import { cn } from "@/lib/utils";
 import { projects } from "@/lib/portfolio-data";
 
@@ -105,7 +106,8 @@ export function Projects() {
               delay={i * 120}
               className="h-full"
             >
-              <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-paper-light/80 p-6 shadow-fold backdrop-blur-sm transition-all duration-400 hover:-translate-y-1 hover:bg-paper-light hover:shadow-fold-lg sm:p-7">
+              <TiltCard max={9} className="h-full rounded-2xl">
+              <article className="group shimmer-3d relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-paper-light/80 p-6 shadow-fold backdrop-blur-sm transition-all duration-400 hover:-translate-y-1 hover:bg-paper-light hover:shadow-fold-lg sm:p-7">
                 <FoldCorner size={28} position="top-right" />
 
                 <div className="flex items-center justify-between">
@@ -148,6 +150,7 @@ export function Projects() {
                   </div>
                 </div>
               </article>
+              </TiltCard>
             </OrigamiReveal>
           ))}
         </div>

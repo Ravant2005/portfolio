@@ -9,10 +9,16 @@ import { Achievements } from "@/components/sections/achievements";
 import { Gallery } from "@/components/sections/gallery";
 import { Contact } from "@/components/sections/contact";
 import { Footer } from "@/components/sections/footer";
+import { CursorInk } from "@/components/origami/cursor-ink";
+import { ScrollProgress } from "@/components/origami/scroll-progress";
+import { IntroLoader } from "@/components/origami/intro-loader";
 
 export default function Home() {
   return (
     <div className="relative flex min-h-screen flex-col bg-paper">
+      <IntroLoader />
+      <ScrollProgress />
+      <CursorInk />
       <Nav />
       <main className="flex-1">
         <Hero />
