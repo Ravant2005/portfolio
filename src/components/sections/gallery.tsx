@@ -15,7 +15,7 @@ export function Gallery() {
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeader
-          index="07"
+          index="08"
           eyebrow="Folds in motion — moments from the field"
           title="Gallery"
           subtitle="Speaking, teaching, winning. The paper rarely sits still."

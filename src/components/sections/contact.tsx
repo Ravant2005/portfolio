@@ -55,7 +55,7 @@ export function Contact() {
         <div className="mb-12 md:mb-16">
           <OrigamiReveal variant="unfold-up" gentle>
             <div className="flex items-center gap-3">
-              <InkSeal label="08" size={52} />
+              <InkSeal label="09" size={52} />
               <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-paper-deep/70">
                 Let&apos;s fold something together
               </span>

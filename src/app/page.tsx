@@ -6,6 +6,7 @@ import { Experience } from "@/components/sections/experience";
 import { Projects } from "@/components/sections/projects";
 import { Skills } from "@/components/sections/skills";
 import { Achievements } from "@/components/sections/achievements";
+import { Recommendations } from "@/components/sections/recommendations";
 import { Gallery } from "@/components/sections/gallery";
 import { Contact } from "@/components/sections/contact";
 import { Footer } from "@/components/sections/footer";
@@ -28,6 +29,7 @@ export default function Home() {
         <Projects />
         <Skills />
         <Achievements />
+        <Recommendations />
         <Gallery />
         <Contact />
       </main>

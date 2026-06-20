@@ -9,7 +9,7 @@ import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetClose } from "@/com
 import { useActiveSection } from "@/hooks/use-active-section";
 import { MagneticButton } from "@/components/origami/magnetic-button";
 
-const sectionIds = ["about", "ventures", "experience", "projects", "skills", "achievements", "contact"];
+const sectionIds = ["about", "ventures", "experience", "projects", "skills", "achievements", "recommendations", "gallery", "contact"];
 
 export function Nav() {
   const [scrolled, setScrolled] = React.useState(false);
