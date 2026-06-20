@@ -9,7 +9,7 @@ import { navLinks } from "@/lib/portfolio-data";
 
 export function Footer() {
   return (
-    <footer className="relative mt-auto overflow-hidden border-t border-border bg-paper-deep/40 paper-fibers">
+    <footer className="relative mt-auto overflow-hidden border-t border-border bg-paper-deep/40">
       <CreaseLine orientation="horizontal" className="top-0 opacity-50" />
       <PaperCrane className="absolute right-[6%] top-[40%] hidden text-ink/15 md:block" size={48} />
 

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowUpRight, Github, Linkedin, Mail, MapPin, Phone, Sparkles } from "lucide-react";
 import { SectionHeader } from "@/components/origami/section-header";
 import { OrigamiReveal, InkReveal } from "@/components/origami/origami-reveal";
-import { CreaseLine, InkSplat, PaperCrane, InkSeal } from "@/components/origami/decor";
+import { CreaseLine, PaperCrane, InkSeal } from "@/components/origami/decor";
 import { profile } from "@/lib/portfolio-data";
 
 const contactItems = [
@@ -43,11 +43,9 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-ink py-24 text-paper-light paper-fibers md:py-32"
+      className="relative overflow-hidden bg-ink py-24 text-paper-light md:py-32"
     >
       {/* ambient ink + cranes on dark */}
-      <InkSplat className="-left-32 top-10 h-[480px] w-[480px]" color="var(--cinnabar)" opacity={0.18} />
-      <InkSplat className="-right-32 bottom-0 h-[560px] w-[560px]" color="var(--paper-light)" opacity={0.05} />
       <PaperCrane className="absolute left-[8%] top-[18%] hidden text-cinnabar/40 md:block" size={56} />
       <PaperCrane className="absolute right-[10%] bottom-[16%] hidden text-gold/40 lg:block" size={44} />
 

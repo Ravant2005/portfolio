@@ -4,14 +4,13 @@ import * as React from "react";
 import Image from "next/image";
 import { SectionHeader } from "@/components/origami/section-header";
 import { OrigamiReveal } from "@/components/origami/origami-reveal";
-import { CreaseLine, InkSplat } from "@/components/origami/decor";
+import { CreaseLine } from "@/components/origami/decor";
 import { TiltCard } from "@/components/origami/tilt-card";
 import { gallery } from "@/lib/portfolio-data";
 
 export function Gallery() {
   return (
-    <section id="gallery" className="relative bg-paper py-24 paper-grain paper-fibers md:py-32">
-      <InkSplat className="-right-40 top-24 h-[440px] w-[440px]" opacity={0.05} />
+    <section id="gallery" className="relative bg-paper py-24 md:py-32">
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeader

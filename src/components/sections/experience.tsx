@@ -3,13 +3,12 @@
 import * as React from "react";
 import { SectionHeader } from "@/components/origami/section-header";
 import { OrigamiReveal } from "@/components/origami/origami-reveal";
-import { CreaseLine, InkSplat } from "@/components/origami/decor";
+import { CreaseLine } from "@/components/origami/decor";
 import { experience } from "@/lib/portfolio-data";
 
 export function Experience() {
   return (
-    <section id="experience" className="relative bg-paper-deep/20 py-24 paper-fibers md:py-32">
-      <InkSplat className="-right-40 bottom-20 h-[480px] w-[480px]" opacity={0.05} />
+    <section id="experience" className="relative bg-paper-deep/20 py-24 md:py-32">
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeader

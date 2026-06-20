@@ -6,7 +6,7 @@ import { Quote, ChevronDown, MapPin, Award } from "lucide-react";
 import { SectionHeader } from "@/components/origami/section-header";
 import { OrigamiReveal } from "@/components/origami/origami-reveal";
 import { TiltCard } from "@/components/origami/tilt-card";
-import { CreaseLine, InkSplat, InkSeal } from "@/components/origami/decor";
+import { CreaseLine, InkSeal } from "@/components/origami/decor";
 import { cn } from "@/lib/utils";
 import { recommenders } from "@/lib/recommendations-data";
 
@@ -187,9 +187,8 @@ export function Recommendations() {
   return (
     <section
       id="recommendations"
-      className="relative bg-gradient-to-b from-paper-deep/25 to-paper py-24 paper-fibers md:py-32"
+      className="relative bg-gradient-to-b from-paper-deep/25 to-paper py-24 md:py-32"
     >
-      <InkSplat className="-left-44 top-24 h-[480px] w-[480px]" color="var(--cinnabar)" opacity={0.05} />
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeader

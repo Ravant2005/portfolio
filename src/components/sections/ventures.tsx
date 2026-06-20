@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
 import { SectionHeader } from "@/components/origami/section-header";
 import { OrigamiReveal } from "@/components/origami/origami-reveal";
-import { CreaseLine, InkSplat } from "@/components/origami/decor";
+import { CreaseLine } from "@/components/origami/decor";
 import { TiltCard } from "@/components/origami/tilt-card";
 import { cn } from "@/lib/utils";
 import { ventures } from "@/lib/portfolio-data";
@@ -30,9 +30,8 @@ export function Ventures() {
   return (
     <section
       id="ventures"
-      className="relative bg-gradient-to-b from-paper via-paper-deep/30 to-paper py-24 paper-fibers md:py-32"
+      className="relative bg-gradient-to-b from-paper via-paper-deep/30 to-paper py-24 md:py-32"
     >
-      <InkSplat className="-left-44 top-32 h-[480px] w-[480px]" color="var(--cinnabar)" opacity={0.05} />
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeader

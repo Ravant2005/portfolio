@@ -4,7 +4,7 @@ import * as React from "react";
 import { ArrowUpRight, Award, Check, Star } from "lucide-react";
 import { SectionHeader } from "@/components/origami/section-header";
 import { OrigamiReveal } from "@/components/origami/origami-reveal";
-import { CreaseLine, InkSplat, InkSeal } from "@/components/origami/decor";
+import { CreaseLine, InkSeal } from "@/components/origami/decor";
 import { TiltCard } from "@/components/origami/tilt-card";
 import { cn } from "@/lib/utils";
 import { projects } from "@/lib/portfolio-data";
@@ -14,9 +14,7 @@ export function Projects() {
   const rest = projects.filter((p) => !p.featured);
 
   return (
-    <section id="projects" className="relative bg-paper py-24 paper-grain paper-fibers md:py-32">
-      <InkSplat className="-left-40 top-24 h-[460px] w-[460px]" opacity={0.06} />
-      <InkSplat className="-right-32 bottom-40 h-[420px] w-[420px]" color="var(--gold)" opacity={0.06} />
+    <section id="projects" className="relative bg-paper py-24 md:py-32">
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeader

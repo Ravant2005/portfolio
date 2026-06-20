@@ -3,7 +3,7 @@
 import * as React from "react";
 import { SectionHeader } from "@/components/origami/section-header";
 import { OrigamiReveal } from "@/components/origami/origami-reveal";
-import { CreaseLine, InkSplat } from "@/components/origami/decor";
+import { CreaseLine } from "@/components/origami/decor";
 import { TiltCard } from "@/components/origami/tilt-card";
 import { Marquee } from "@/components/origami/marquee";
 import { cn } from "@/lib/utils";
@@ -52,8 +52,7 @@ const accentClasses: Record<
 
 export function Skills() {
   return (
-    <section id="skills" className="relative bg-gradient-to-b from-paper to-paper-deep/25 py-24 paper-fibers md:py-32">
-      <InkSplat className="-right-44 top-20 h-[460px] w-[460px]" opacity={0.05} />
+    <section id="skills" className="relative bg-gradient-to-b from-paper to-paper-deep/25 py-24 md:py-32">
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeader

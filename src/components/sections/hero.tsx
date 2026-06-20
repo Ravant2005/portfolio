@@ -7,7 +7,6 @@ import { ArrowDown, ArrowUpRight, MapPin, Sparkles } from "lucide-react";
 import { InkReveal, OrigamiReveal } from "@/components/origami/origami-reveal";
 import {
   PaperCrane,
-  InkSplat,
   CreaseLine,
   InkSeal,
 } from "@/components/origami/decor";
@@ -55,7 +54,7 @@ export function Hero() {
     <section
       ref={sectionRef}
       id="top"
-      className="relative min-h-screen w-full overflow-hidden bg-paper paper-grain paper-fibers"
+      className="relative min-h-screen w-full overflow-hidden bg-paper"
     >
       {/* Ambient ink-wash blobs with parallax depth */}
       <div
@@ -65,7 +64,6 @@ export function Hero() {
           transition: "transform 200ms ease-out",
         }}
       >
-        <InkSplat className="h-full w-full" opacity={0.1} />
       </div>
       <div
         className="pointer-events-none absolute -right-32 bottom-0 h-[640px] w-[640px]"
@@ -74,7 +72,6 @@ export function Hero() {
           transition: "transform 200ms ease-out",
         }}
       >
-        <InkSplat className="h-full w-full" color="var(--cinnabar)" opacity={0.06} />
       </div>
       <div
         className="pointer-events-none absolute left-1/3 top-1/2 h-[380px] w-[380px]"
@@ -83,7 +80,6 @@ export function Hero() {
           transition: "transform 200ms ease-out",
         }}
       >
-        <InkSplat className="h-full w-full" color="var(--moss)" opacity={0.05} />
       </div>
 
       {/* Floating paper cranes with parallax */}

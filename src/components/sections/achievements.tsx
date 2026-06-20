@@ -4,7 +4,7 @@ import * as React from "react";
 import Image from "next/image";
 import { SectionHeader } from "@/components/origami/section-header";
 import { OrigamiReveal } from "@/components/origami/origami-reveal";
-import { CreaseLine, InkSplat, InkSeal } from "@/components/origami/decor";
+import { CreaseLine, InkSeal } from "@/components/origami/decor";
 import { cn } from "@/lib/utils";
 import { achievements, volunteer } from "@/lib/portfolio-data";
 
@@ -22,9 +22,8 @@ export function Achievements() {
   return (
     <section
       id="achievements"
-      className="relative bg-paper-deep/25 py-24 paper-fibers md:py-32"
+      className="relative bg-paper-deep/25 py-24 md:py-32"
     >
-      <InkSplat className="-left-40 top-32 h-[460px] w-[460px]" color="var(--cinnabar)" opacity={0.06} />
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeader

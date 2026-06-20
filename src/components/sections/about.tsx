@@ -5,7 +5,7 @@ import Image from "next/image";
 import { GraduationCap, Languages, Mail, MapPin, Trophy, Users } from "lucide-react";
 import { SectionHeader } from "@/components/origami/section-header";
 import { OrigamiReveal } from "@/components/origami/origami-reveal";
-import { CreaseLine, InkSplat } from "@/components/origami/decor";
+import { CreaseLine } from "@/components/origami/decor";
 import { profile, education } from "@/lib/portfolio-data";
 
 const quickFacts = [
@@ -19,8 +19,7 @@ const quickFacts = [
 
 export function About() {
   return (
-    <section id="about" className="relative bg-paper paper-fibers py-24 md:py-32">
-      <InkSplat className="-right-40 top-20 h-[460px] w-[460px]" opacity={0.06} />
+    <section id="about" className="relative bg-paper py-24 md:py-32">
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeader
