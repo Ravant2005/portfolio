@@ -5,7 +5,7 @@ import Image from "next/image";
 import { GraduationCap, Languages, Mail, MapPin, Trophy, Users } from "lucide-react";
 import { SectionHeader } from "@/components/origami/section-header";
 import { OrigamiReveal } from "@/components/origami/origami-reveal";
-import { FoldCorner, CreaseLine, InkSplat } from "@/components/origami/decor";
+import { CreaseLine, InkSplat } from "@/components/origami/decor";
 import { profile, education } from "@/lib/portfolio-data";
 
 const quickFacts = [
@@ -53,8 +53,6 @@ export function About() {
                     }}
                   />
                 </div>
-                <FoldCorner size={36} position="top-right" />
-                <FoldCorner size={28} position="bottom-left" />
 
                 {/* caption seal */}
                 <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-3">
@@ -131,7 +129,6 @@ export function About() {
             {/* Education strip */}
             <OrigamiReveal variant="unfold-up" gentle delay={400} className="mt-6">
               <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-paper-light to-paper-deep/40 p-5 shadow-fold">
-                <FoldCorner size={24} position="top-right" />
                 <div className="flex items-start gap-4">
                   <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-ink text-paper-light">
                     <education.icon className="h-5 w-5" />

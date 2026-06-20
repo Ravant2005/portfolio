@@ -4,7 +4,7 @@ import * as React from "react";
 import Image from "next/image";
 import { SectionHeader } from "@/components/origami/section-header";
 import { OrigamiReveal } from "@/components/origami/origami-reveal";
-import { FoldCorner, CreaseLine, InkSplat, InkSeal } from "@/components/origami/decor";
+import { CreaseLine, InkSplat, InkSeal } from "@/components/origami/decor";
 import { cn } from "@/lib/utils";
 import { achievements, volunteer } from "@/lib/portfolio-data";
 
@@ -48,7 +48,6 @@ export function Achievements() {
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-ink/10 to-transparent" />
-                  <FoldCorner size={36} position="top-right" />
 
                   {/* Floating prize badge */}
                   <div className="absolute right-4 top-4 flex items-center gap-2 rounded-full bg-cinnabar px-4 py-2 text-paper-light shadow-fold-lg">
@@ -116,7 +115,6 @@ export function Achievements() {
               className="h-full"
             >
               <div className="group relative flex h-full items-start gap-4 overflow-hidden rounded-2xl border border-border bg-paper-light/80 p-5 shadow-fold backdrop-blur-sm transition-all duration-400 hover:bg-paper-light hover:shadow-fold-lg sm:p-6">
-                <FoldCorner size={22} position="top-right" />
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-ink text-paper-light shadow-fold transition-transform duration-300 group-hover:scale-105">
                   <a.icon className="h-5 w-5" />
                 </span>

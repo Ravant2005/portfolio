@@ -3,7 +3,7 @@
 import * as React from "react";
 import { SectionHeader } from "@/components/origami/section-header";
 import { OrigamiReveal } from "@/components/origami/origami-reveal";
-import { CreaseLine, InkSplat, FoldCorner } from "@/components/origami/decor";
+import { CreaseLine, InkSplat } from "@/components/origami/decor";
 import { experience } from "@/lib/portfolio-data";
 
 export function Experience() {
@@ -48,7 +48,6 @@ export function Experience() {
                 </div>
 
                 <article className="group relative overflow-hidden rounded-2xl border border-border bg-paper-light/80 p-5 shadow-fold backdrop-blur-sm transition-all duration-400 hover:-translate-y-0.5 hover:bg-paper-light hover:shadow-fold-lg sm:p-7">
-                  <FoldCorner size={26} position="top-right" />
 
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <div>

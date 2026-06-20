@@ -6,7 +6,7 @@ import { Quote, ChevronDown, MapPin, Award } from "lucide-react";
 import { SectionHeader } from "@/components/origami/section-header";
 import { OrigamiReveal } from "@/components/origami/origami-reveal";
 import { TiltCard } from "@/components/origami/tilt-card";
-import { FoldCorner, CreaseLine, InkSplat, InkSeal } from "@/components/origami/decor";
+import { CreaseLine, InkSplat, InkSeal } from "@/components/origami/decor";
 import { cn } from "@/lib/utils";
 import { recommenders } from "@/lib/recommendations-data";
 
@@ -71,7 +71,6 @@ function RecommendationCard({
             a.ring
           )}
         >
-          <FoldCorner size={24} position="top-right" />
 
           {/* Header: avatar + name + title */}
           <div className="flex items-start gap-4">

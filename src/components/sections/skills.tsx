@@ -3,7 +3,7 @@
 import * as React from "react";
 import { SectionHeader } from "@/components/origami/section-header";
 import { OrigamiReveal } from "@/components/origami/origami-reveal";
-import { FoldCorner, CreaseLine, InkSplat } from "@/components/origami/decor";
+import { CreaseLine, InkSplat } from "@/components/origami/decor";
 import { TiltCard } from "@/components/origami/tilt-card";
 import { Marquee } from "@/components/origami/marquee";
 import { cn } from "@/lib/utils";
@@ -75,7 +75,6 @@ export function Skills() {
               >
               <TiltCard max={9} className="h-full rounded-2xl">
                 <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-paper-light/80 p-5 shadow-fold backdrop-blur-sm transition-all duration-400 hover:bg-paper-light hover:shadow-fold-lg sm:p-6">
-                  <FoldCorner size={24} position="top-right" />
 
                   <div className="flex items-center gap-3">
                     <span

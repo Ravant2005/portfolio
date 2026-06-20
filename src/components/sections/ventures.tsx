@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
 import { SectionHeader } from "@/components/origami/section-header";
 import { OrigamiReveal } from "@/components/origami/origami-reveal";
-import { FoldCorner, CreaseLine, InkSplat } from "@/components/origami/decor";
+import { CreaseLine, InkSplat } from "@/components/origami/decor";
 import { TiltCard } from "@/components/origami/tilt-card";
 import { cn } from "@/lib/utils";
 import { ventures } from "@/lib/portfolio-data";
@@ -60,7 +60,6 @@ export function Ventures() {
                     a.glow
                   )}
                 >
-                  <FoldCorner size={36} position="top-right" />
                   <CreaseLine orientation="horizontal" className="top-[88px] opacity-40" />
 
                   {/* Header: logo + meta */}

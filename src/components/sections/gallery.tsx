@@ -4,7 +4,7 @@ import * as React from "react";
 import Image from "next/image";
 import { SectionHeader } from "@/components/origami/section-header";
 import { OrigamiReveal } from "@/components/origami/origami-reveal";
-import { FoldCorner, CreaseLine, InkSplat } from "@/components/origami/decor";
+import { CreaseLine, InkSplat } from "@/components/origami/decor";
 import { TiltCard } from "@/components/origami/tilt-card";
 import { gallery } from "@/lib/portfolio-data";
 
@@ -40,7 +40,6 @@ export function Gallery() {
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.08]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-ink/5 to-transparent" />
-                  <FoldCorner size={26} position="top-right" />
                 </div>
                 <figcaption className="absolute inset-x-0 bottom-0 p-4">
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-cinnabar/90 px-2.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.16em] text-paper-light">

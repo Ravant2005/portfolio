@@ -4,7 +4,7 @@ import * as React from "react";
 import { ArrowUpRight, Award, Check, Star } from "lucide-react";
 import { SectionHeader } from "@/components/origami/section-header";
 import { OrigamiReveal } from "@/components/origami/origami-reveal";
-import { FoldCorner, CreaseLine, InkSplat, InkSeal } from "@/components/origami/decor";
+import { CreaseLine, InkSplat, InkSeal } from "@/components/origami/decor";
 import { TiltCard } from "@/components/origami/tilt-card";
 import { cn } from "@/lib/utils";
 import { projects } from "@/lib/portfolio-data";
@@ -29,8 +29,6 @@ export function Projects() {
         {/* Featured project — CertiChain */}
         <OrigamiReveal variant="unfold-up" className="mb-8">
           <article className="group relative overflow-hidden rounded-3xl border border-cinnabar/30 bg-gradient-to-br from-paper-light via-paper-light to-paper-deep/50 shadow-fold-lg">
-            <FoldCorner size={40} position="top-right" />
-            <FoldCorner size={28} position="bottom-left" />
 
             {/* Award ribbon */}
             <div className="absolute right-6 top-6 z-10 flex items-center gap-2 rounded-full bg-cinnabar px-4 py-1.5 text-paper-light shadow-fold">
@@ -108,7 +106,6 @@ export function Projects() {
             >
               <TiltCard max={9} className="h-full rounded-2xl">
               <article className="group shimmer-3d relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-paper-light/80 p-6 shadow-fold backdrop-blur-sm transition-all duration-400 hover:-translate-y-1 hover:bg-paper-light hover:shadow-fold-lg sm:p-7">
-                <FoldCorner size={28} position="top-right" />
 
                 <div className="flex items-center justify-between">
                   <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-ink text-paper-light shadow-fold">

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowUpRight, Github, Linkedin, Mail, MapPin, Phone, Sparkles } from "lucide-react";
 import { SectionHeader } from "@/components/origami/section-header";
 import { OrigamiReveal, InkReveal } from "@/components/origami/origami-reveal";
-import { FoldCorner, CreaseLine, InkSplat, PaperCrane, InkSeal } from "@/components/origami/decor";
+import { CreaseLine, InkSplat, PaperCrane, InkSeal } from "@/components/origami/decor";
 import { profile } from "@/lib/portfolio-data";
 
 const contactItems = [
@@ -84,7 +84,6 @@ export function Contact() {
           <div className="lg:col-span-5">
             <OrigamiReveal variant="unfold-left">
               <div className="relative overflow-hidden rounded-3xl border border-paper-light/15 bg-paper-light/[0.06] p-7 backdrop-blur-sm sm:p-8">
-                <FoldCorner size={32} position="top-right" />
                 <Sparkles className="h-7 w-7 text-gold" />
                 <h3 className="mt-4 font-display text-2xl font-bold text-paper-light">
                   Open to opportunities

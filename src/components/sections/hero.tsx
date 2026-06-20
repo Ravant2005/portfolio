@@ -10,7 +10,6 @@ import {
   InkSplat,
   CreaseLine,
   InkSeal,
-  FoldCorner,
 } from "@/components/origami/decor";
 import { Crane3D } from "@/components/origami/crane-3d";
 import { Counter } from "@/components/origami/counter";
@@ -118,14 +117,14 @@ export function Hero() {
 
       {/* Portrait — transparent cutout emerging from the paper, with 3D parallax */}
       <div
-        className="pointer-events-none absolute right-0 top-0 bottom-0 hidden lg:block"
+        className="pointer-events-none absolute right-0 top-0 bottom-0 hidden md:block"
         style={{
-          width: "42%",
+          width: "40%",
           perspective: "1200px",
         }}
       >
         <div
-          className="absolute right-[4%] top-1/2 -translate-y-1/2"
+          className="absolute right-[2%] top-1/2 -translate-y-1/2 md:right-[4%] lg:right-[6%]"
           style={{
             transform: `translateY(-50%) translate(${parallax.x * -25}px, ${parallax.y * -25}px) rotateY(${parallax.x * 6}deg) rotateX(${parallax.y * -4}deg)`,
             transition: "transform 200ms ease-out",
@@ -133,7 +132,7 @@ export function Hero() {
           }}
         >
           <OrigamiReveal variant="unfold-left" delay={400} perspective={1400}>
-            <div className="relative h-[80vh] max-h-[780px] w-auto" style={{ transformStyle: "preserve-3d" }}>
+            <div className="relative h-[72vh] max-h-[700px] w-auto md:h-[76vh] lg:h-[80vh] lg:max-h-[780px]" style={{ transformStyle: "preserve-3d" }}>
               <Image
                 src="/images/ravant-portrait.png"
                 alt="S. Ravant Vignesh — AI/ML Engineer"
@@ -162,7 +161,7 @@ export function Hero() {
       <CreaseLine orientation="horizontal" className="top-1/3 opacity-50" />
       <CreaseLine orientation="vertical" className="left-1/2 opacity-30" />
 
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-5 pb-24 pt-28 sm:px-8 md:pt-32 lg:pr-[20%] xl:pr-[24%]">
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-5 pb-24 pt-28 sm:px-8 md:pt-32 md:pr-[22%] lg:pr-[26%]">
         {/* Eyebrow row */}
         <OrigamiReveal variant="unfold-up" gentle className="mb-8">
           <div className="flex flex-wrap items-center gap-3">
@@ -276,7 +275,6 @@ export function Hero() {
         {/* Stats row — with animated counters */}
         <OrigamiReveal variant="unfold-up" delay={700} className="mt-16 md:mt-20 lg:max-w-[680px]">
           <div className="group relative grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border/40 shadow-fold md:grid-cols-4">
-            <FoldCorner size={28} position="top-right" />
             {stats.map((s, i) => {
               const parsed = parseStat(s.value);
               return (

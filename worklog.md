@@ -140,3 +140,33 @@ Stage Summary:
 - Two-stage background removal: AI segmentation (black→cream) + luminance thresholding (cream→transparent)
 - Portrait features: 3D parallax, unfold animation, drop-shadow, radial mask, "emerging from paper" bottom fade
 - Final VLM rating: 9/10 for portrait integration
+
+---
+Task ID: 4
+Agent: Main Orchestrator
+Task: Remove FoldCorner ("touch paper fold effect") from all cards + fix portrait not showing in hero
+
+Work Log:
+- User reported two issues: (1) FoldCorner triangle decorations on cards should be removed, (2) transparent portrait not visible in hero
+- Issue 1 — FoldCorner removal:
+  - Used sed to remove all `<FoldCorner` JSX lines from 10 section files (hero, about, ventures, experience, projects, skills, achievements, gallery, recommendations, contact)
+  - Cleaned FoldCorner from all import statements (handled various comma patterns)
+  - Fixed stray comma in hero.tsx multi-line import
+  - VLM verified: "all corners are clean and flat — no triangular folded paper corner effects visible on any cards"
+- Issue 2 — Portrait visibility:
+  - Portrait was `hidden lg:block` (only visible at 1024px+) — user viewing at smaller width couldn't see it
+  - Changed to `hidden md:block` (visible at 768px+)
+  - Added responsive sizing: h-[72vh] at md, h-[76vh] at md, h-[80vh] at lg
+  - Adjusted content padding from `lg:pr-[20%] xl:pr-[24%]` to `md:pr-[22%] lg:pr-[26%]` to prevent overlap
+  - VLM verified portrait visible at both 1024px and 1440px: "YES, portrait of a person visible on the right side"
+  - Mobile (390px): portrait hidden, text fully readable, no layout issues
+- Verification:
+  - ESLint: clean (0 errors)
+  - No console/page errors
+  - All sections render correctly with clean corners
+  - Dev server: 200 OK
+
+Stage Summary:
+- FoldCorner decorations removed from ALL cards across all sections (10 files)
+- Portrait now visible from md (768px) upward instead of only lg (1024px+)
+- Both issues confirmed fixed via Agent Browser + VLM verification
