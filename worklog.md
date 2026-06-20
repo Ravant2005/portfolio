@@ -108,3 +108,35 @@ Stage Summary:
 - Portfolio now has: 3D tilt cards on hover, custom ink cursor, page intro loader, scroll progress bar, animated counters, staggered text reveals, magnetic buttons, active nav highlighting, self-drawing 3D crane, infinite skills marquee, shimmer sweeps, spotlight cursor glow
 - New Recommendations section (07) with 4 recommender cards: Siji Varghese (CEO, 4×TEDx), Vandana Sachdeva (Brand Strategy Head), Jagadeesh Kanna (Vaayusastra CEO), Veera Karthik Subburaj (AGAM judge) — each with extracted/generated profile photo, description, achievements, short + expandable full recommendation
 - All 4 recommender images saved to public/images/recommenders/
+
+---
+Task ID: 3
+Agent: Main Orchestrator
+Task: Add transparent portrait image to the hero section's blank area
+
+Work Log:
+- Analyzed 2 uploaded images via VLM:
+  - pasted_image_1781974220783.png → screenshot of hero showing the blank area on the right side
+  - WhatsApp Image 2026-06-20 at 22.19.16.jpeg → portrait of Ravant on solid black background (navy blazer, black shirt, lanyard)
+- Challenge: portrait has pure black background; subject's dark hair (maxCh=2) is indistinguishable from background (maxCh=0) via thresholding
+- Attempted pixel-level background removal with sharp (threshold, flood-fill, blurred alpha) — all produced artifacts (white patches on face/hair, scan lines)
+- Solution: Used AI image-edit skill (z-ai-web-dev-sdk) to replace black background with cream (#f1e7cf-matching) — AI does proper segmentation preserving hair
+- Then processed the AI-edited image with sharp to remove the cream background (luminance > 232 → transparent) + radial edge fade + bottom "emerging from paper" fade
+- Result: 8/10 quality transparent portrait (face, hair, blazer, lanyard all clear; no artifacts)
+- Added portrait to hero section:
+  - Positioned on right 42% of screen (lg+ screens, hidden on mobile)
+  - 3D mouse parallax (moves with cursor, rotates rotateX/rotateY)
+  - OrigamiReveal unfold-left animation on page load
+  - Soft drop-shadow + radial CSS mask for seamless edge blending
+  - translateZ(30px) for 3D depth layering
+- Constrained content area (lg:pr-[20%] xl:pr-[24%]) and stats row (lg:max-w-[680px]) to prevent overlap with portrait
+- Moved Crane3D to top-right corner (smaller 120px) to complement rather than compete with portrait
+- Verification: VLM rates portrait integration 9/10 — "highly effective", "blends seamlessly", "professional, polished"
+- Mobile: portrait hidden (lg:block), text fully readable, no layout issues
+- ESLint: clean (0 errors)
+
+Stage Summary:
+- Transparent portrait of Ravant added to hero's right side (the blank area)
+- Two-stage background removal: AI segmentation (black→cream) + luminance thresholding (cream→transparent)
+- Portrait features: 3D parallax, unfold animation, drop-shadow, radial mask, "emerging from paper" bottom fade
+- Final VLM rating: 9/10 for portrait integration

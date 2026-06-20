@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowDown, ArrowUpRight, MapPin, Sparkles } from "lucide-react";
 import { InkReveal, OrigamiReveal } from "@/components/origami/origami-reveal";
 import {
@@ -115,16 +116,53 @@ export function Hero() {
         <PaperCrane className="text-gold/60" size={56} />
       </div>
 
-      {/* Self-drawing 3D crane — hero centerpiece accent */}
-      <div className="pointer-events-none absolute right-[6%] top-[14%] hidden xl:block">
-        <Crane3D size={180} />
+      {/* Portrait — transparent cutout emerging from the paper, with 3D parallax */}
+      <div
+        className="pointer-events-none absolute right-0 top-0 bottom-0 hidden lg:block"
+        style={{
+          width: "42%",
+          perspective: "1200px",
+        }}
+      >
+        <div
+          className="absolute right-[4%] top-1/2 -translate-y-1/2"
+          style={{
+            transform: `translateY(-50%) translate(${parallax.x * -25}px, ${parallax.y * -25}px) rotateY(${parallax.x * 6}deg) rotateX(${parallax.y * -4}deg)`,
+            transition: "transform 200ms ease-out",
+            transformStyle: "preserve-3d",
+          }}
+        >
+          <OrigamiReveal variant="unfold-left" delay={400} perspective={1400}>
+            <div className="relative h-[80vh] max-h-[780px] w-auto" style={{ transformStyle: "preserve-3d" }}>
+              <Image
+                src="/images/ravant-portrait.png"
+                alt="S. Ravant Vignesh — AI/ML Engineer"
+                width={768}
+                height={1344}
+                priority
+                className="h-full w-auto object-contain"
+                style={{
+                  filter: "drop-shadow(0 8px 24px rgba(28,24,19,0.10))",
+                  maskImage: "radial-gradient(ellipse 70% 90% at 50% 40%, black 60%, transparent 100%)",
+                  WebkitMaskImage: "radial-gradient(ellipse 70% 90% at 50% 40%, black 60%, transparent 100%)",
+                  transform: "translateZ(30px)",
+                }}
+              />
+            </div>
+          </OrigamiReveal>
+        </div>
+      </div>
+
+      {/* Self-drawing 3D crane — smaller accent, moved to avoid overlap with portrait */}
+      <div className="pointer-events-none absolute right-[2%] top-[8%] hidden xl:block">
+        <Crane3D size={120} />
       </div>
 
       {/* Decorative crease grid */}
       <CreaseLine orientation="horizontal" className="top-1/3 opacity-50" />
       <CreaseLine orientation="vertical" className="left-1/2 opacity-30" />
 
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-5 pb-24 pt-28 sm:px-8 md:pt-32">
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-5 pb-24 pt-28 sm:px-8 md:pt-32 lg:pr-[20%] xl:pr-[24%]">
         {/* Eyebrow row */}
         <OrigamiReveal variant="unfold-up" gentle className="mb-8">
           <div className="flex flex-wrap items-center gap-3">
@@ -236,7 +274,7 @@ export function Hero() {
         </OrigamiReveal>
 
         {/* Stats row — with animated counters */}
-        <OrigamiReveal variant="unfold-up" delay={700} className="mt-16 md:mt-20">
+        <OrigamiReveal variant="unfold-up" delay={700} className="mt-16 md:mt-20 lg:max-w-[680px]">
           <div className="group relative grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border/40 shadow-fold md:grid-cols-4">
             <FoldCorner size={28} position="top-right" />
             {stats.map((s, i) => {
