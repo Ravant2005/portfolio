@@ -170,3 +170,39 @@ Stage Summary:
 - FoldCorner decorations removed from ALL cards across all sections (10 files)
 - Portrait now visible from md (768px) upward instead of only lg (1024px+)
 - Both issues confirmed fixed via Agent Browser + VLM verification
+
+---
+Task ID: 5
+Agent: Main Orchestrator
+Task: Move portrait to top center of hero section (was on right side)
+
+Work Log:
+- User wanted portrait moved from right side to top-center of the hero, with content centered below
+- Redesigned hero portrait container:
+  - Was: absolute right-0, width 40%, vertically centered (top-1/2 -translate-y-1/2), hidden md:block
+  - Now: absolute inset-x-0 top-0, flex justify-center (horizontally centered at top), visible all breakpoints
+  - Responsive widths: w-[260px] mobile → sm:320px → md:380px → lg:440px
+  - Kept 3D parallax (mouse-driven translate + rotateY/rotateX)
+  - Kept unfold-up OrigamiReveal animation, drop-shadow, radial mask
+  - Adjusted mask gradient to ellipse 80% 85% at 50% 38% for the new aspect
+- Redesigned content container:
+  - Was: left-aligned, justify-center, with right padding (md:pr-[22%] lg:pr-[26%]) to avoid portrait overlap
+  - Now: centered (items-center, text-center, justify-end), top padding (pt-[42vh] sm:44vh md:46vh) so text starts below the portrait
+- Centered all content blocks:
+  - Eyebrow row: justify-center
+  - CTA buttons row: justify-center
+  - Stats row: w-full lg:max-w-[820px] (wider for centered layout)
+  - Name heading inherits text-center from parent
+  - Tagline/description max-w-3xl centered
+- Moved Crane3D accent to right-[4%] top-[10%] (smaller 100px) to complement the centered portrait
+- Verification:
+  - Desktop 1440px: portrait centered at top, name "S. Ravant Vignesh" below it, no overlap, balanced spacing
+  - Mobile 390px: portrait centered at top, text readable and centered, appropriately sized, no cutoff
+  - VLM: "centered layout", "portrait positioned centered in the upper-middle portion", "no overlap, spacing is sufficient"
+  - ESLint: clean, no console errors, page 200 OK
+
+Stage Summary:
+- Portrait moved from right side to top-center of hero
+- Entire hero content now centered (portrait at top, name/tagline/CTAs/stats below)
+- Fully responsive: portrait scales from 260px (mobile) to 440px (desktop)
+- No overlap between portrait and text; balanced vertical spacing

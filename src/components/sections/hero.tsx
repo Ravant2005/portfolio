@@ -115,35 +115,34 @@ export function Hero() {
         <PaperCrane className="text-gold/60" size={56} />
       </div>
 
-      {/* Portrait — transparent cutout emerging from the paper, with 3D parallax */}
+      {/* Portrait — centered at the top of the hero, transparent cutout with 3D parallax */}
       <div
-        className="pointer-events-none absolute right-0 top-0 bottom-0 hidden md:block"
-        style={{
-          width: "40%",
-          perspective: "1200px",
-        }}
+        className="pointer-events-none absolute inset-x-0 top-0 flex justify-center"
+        style={{ perspective: "1400px" }}
       >
         <div
-          className="absolute right-[2%] top-1/2 -translate-y-1/2 md:right-[4%] lg:right-[6%]"
           style={{
-            transform: `translateY(-50%) translate(${parallax.x * -25}px, ${parallax.y * -25}px) rotateY(${parallax.x * 6}deg) rotateX(${parallax.y * -4}deg)`,
+            transform: `translate(${parallax.x * -18}px, ${parallax.y * -18}px) rotateY(${parallax.x * 5}deg) rotateX(${parallax.y * -3}deg)`,
             transition: "transform 200ms ease-out",
             transformStyle: "preserve-3d",
           }}
         >
-          <OrigamiReveal variant="unfold-left" delay={400} perspective={1400}>
-            <div className="relative h-[72vh] max-h-[700px] w-auto md:h-[76vh] lg:h-[80vh] lg:max-h-[780px]" style={{ transformStyle: "preserve-3d" }}>
+          <OrigamiReveal variant="unfold-up" delay={200} perspective={1400}>
+            <div
+              className="relative w-[260px] sm:w-[320px] md:w-[380px] lg:w-[440px]"
+              style={{ transformStyle: "preserve-3d" }}
+            >
               <Image
                 src="/images/ravant-portrait.png"
                 alt="S. Ravant Vignesh — AI/ML Engineer"
                 width={768}
                 height={1344}
                 priority
-                className="h-full w-auto object-contain"
+                className="h-auto w-full object-contain"
                 style={{
-                  filter: "drop-shadow(0 8px 24px rgba(28,24,19,0.10))",
-                  maskImage: "radial-gradient(ellipse 70% 90% at 50% 40%, black 60%, transparent 100%)",
-                  WebkitMaskImage: "radial-gradient(ellipse 70% 90% at 50% 40%, black 60%, transparent 100%)",
+                  filter: "drop-shadow(0 12px 32px rgba(28,24,19,0.15))",
+                  maskImage: "radial-gradient(ellipse 80% 85% at 50% 38%, black 55%, transparent 100%)",
+                  WebkitMaskImage: "radial-gradient(ellipse 80% 85% at 50% 38%, black 55%, transparent 100%)",
                   transform: "translateZ(30px)",
                 }}
               />
@@ -152,19 +151,19 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Self-drawing 3D crane — smaller accent, moved to avoid overlap with portrait */}
-      <div className="pointer-events-none absolute right-[2%] top-[8%] hidden xl:block">
-        <Crane3D size={120} />
+      {/* Self-drawing 3D crane — smaller accent in corner */}
+      <div className="pointer-events-none absolute right-[4%] top-[10%] hidden xl:block">
+        <Crane3D size={100} />
       </div>
 
       {/* Decorative crease grid */}
       <CreaseLine orientation="horizontal" className="top-1/3 opacity-50" />
       <CreaseLine orientation="vertical" className="left-1/2 opacity-30" />
 
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-5 pb-24 pt-28 sm:px-8 md:pt-32 md:pr-[22%] lg:pr-[26%]">
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-end px-5 pb-24 pt-[42vh] sm:pt-[44vh] md:pt-[46vh] sm:px-8 text-center">
         {/* Eyebrow row */}
         <OrigamiReveal variant="unfold-up" gentle className="mb-8">
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-3">
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-paper-light/60 px-4 py-1.5 backdrop-blur-sm">
               <span className="relative flex h-2 w-2">
                 <span
@@ -210,7 +209,7 @@ export function Hero() {
           <OrigamiReveal
             variant="unfold-up"
             delay={500}
-            className="absolute -right-2 top-0 sm:right-2 md:right-8"
+            className="absolute -right-2 top-0 sm:right-4 md:right-8"
           >
             <InkSeal label="AI" size={64} />
           </OrigamiReveal>
@@ -260,7 +259,7 @@ export function Hero() {
 
         {/* CTA row — magnetic buttons */}
         <OrigamiReveal variant="unfold-up" gentle delay={520} className="mt-10">
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-3">
             <MagneticButton href="#projects" variant="primary">
               Unfold the work
               <ArrowUpRight className="h-4 w-4" />
@@ -273,7 +272,7 @@ export function Hero() {
         </OrigamiReveal>
 
         {/* Stats row — with animated counters */}
-        <OrigamiReveal variant="unfold-up" delay={700} className="mt-16 md:mt-20 lg:max-w-[680px]">
+        <OrigamiReveal variant="unfold-up" delay={700} className="mt-16 w-full md:mt-20 lg:max-w-[820px]">
           <div className="group relative grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border/40 shadow-fold md:grid-cols-4">
             {stats.map((s, i) => {
               const parsed = parseStat(s.value);
