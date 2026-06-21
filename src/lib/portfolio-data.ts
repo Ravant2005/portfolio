@@ -36,7 +36,6 @@ export const stats = [
   { value: "₹1,00,000", label: "International Hackathon Prize", sub: "AGAM 9.0 · 1st Place" },
   { value: "500+", label: "Students mentored", sub: "AI & aerospace" },
   { value: "2,000+", label: "Leaders supported", sub: "Global consultancy build" },
-  { value: "90+", label: "Teams defeated", sub: "CertiChain win" },
 ];
 
 export const ventures = [

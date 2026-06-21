@@ -141,7 +141,7 @@ export function Hero() {
 
           {/* Stats */}
           <motion.div {...fadeUp(0.65)} className="mt-10 w-full max-w-xl">
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-px rounded-2xl overflow-hidden border border-border bg-border/40 shadow-fold">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-px rounded-2xl overflow-hidden border border-border bg-border/40 shadow-fold">
               {stats.map((s, i) => {
                 const parsed = parseStat(s.value);
                 return (
