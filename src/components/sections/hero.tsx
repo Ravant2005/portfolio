@@ -47,8 +47,66 @@ export function Hero() {
         {/* ── LEFT: Text column ── */}
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left order-1 lg:order-1">
 
-          {/* Availability badge */}
-          <motion.div {...fadeUp(0.1)} className="mb-6 flex flex-wrap items-center justify-center lg:justify-start gap-3">
+          {/* ── Mobile-only Portrait — appears FIRST before name on mobile ── */}
+          <motion.div
+            {...fadeIn(0.05)}
+            className="block lg:hidden mb-4 relative w-full max-w-[180px] sm:max-w-[210px] mx-auto"
+          >
+            {/* Ambient back-glow */}
+            <div
+              className="absolute inset-0 pointer-events-none opacity-20"
+              style={{
+                background: "radial-gradient(ellipse at 50% 35%, rgba(184,57,42,0.25) 0%, transparent 60%)",
+                filter: "blur(36px)",
+              }}
+            />
+            {/* Soft glow beneath feet */}
+            <div
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[32px] w-[140px] pointer-events-none"
+              style={{
+                background: "radial-gradient(ellipse, rgba(184,57,42,0.18) 0%, transparent 70%)",
+                filter: "blur(16px)",
+              }}
+            />
+            <Image
+              src="/images/ravant-portrait.png"
+              alt="S. Ravant Vignesh — AI/ML Engineer"
+              width={340}
+              height={440}
+              priority
+              quality={100}
+              className="relative z-10 h-auto w-full object-contain"
+              style={{
+                filter: "contrast(1.06) brightness(1.03) saturate(1.08) drop-shadow(0 12px 28px rgba(28,24,19,0.2))",
+              }}
+            />
+          </motion.div>
+
+          {/* Name — tight below portrait on mobile */}
+          <motion.h1
+            {...fadeUp(0.15)}
+            className="font-display font-bold leading-[1.0] tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-[5.2rem]"
+            style={{
+              background: "linear-gradient(140deg, var(--cinnabar) 0%, var(--gold) 40%, var(--cinnabar) 70%, var(--cinnabar-deep) 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
+            S. Ravant<br className="hidden sm:block" /> Vignesh
+          </motion.h1>
+
+          {/* Role tagline — right below name, closer on mobile */}
+          <motion.p {...fadeUp(0.25)} className="mt-2 lg:mt-5 text-lg sm:text-xl md:text-2xl font-semibold text-ink max-w-xl">
+            AI/ML Engineer crafting{" "}
+            <span className="text-cinnabar">
+              generative AI
+            </span>{" "}
+            &amp; multi-agent systems.
+          </motion.p>
+
+          {/* Availability badge — below tagline */}
+          <motion.div {...fadeUp(0.35)} className="mt-4 flex flex-wrap items-center justify-center lg:justify-start gap-3">
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-paper-light/80 px-4 py-1.5 backdrop-blur-sm">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-cinnabar animate-ping" />
@@ -63,29 +121,6 @@ export function Hero() {
               {profile.location}
             </span>
           </motion.div>
-
-          {/* Name */}
-          <motion.h1
-            {...fadeUp(0.2)}
-            className="font-display font-bold leading-[1.0] tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-[5.2rem]"
-            style={{
-              background: "linear-gradient(140deg, var(--cinnabar) 0%, var(--gold) 40%, var(--cinnabar) 70%, var(--cinnabar-deep) 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
-            S. Ravant<br className="hidden sm:block" /> Vignesh
-          </motion.h1>
-
-          {/* Role tagline */}
-          <motion.p {...fadeUp(0.35)} className="mt-5 text-lg sm:text-xl md:text-2xl font-semibold text-ink max-w-xl">
-            AI/ML Engineer crafting{" "}
-            <span className="text-cinnabar">
-              generative AI
-            </span>{" "}
-            &amp; multi-agent systems.
-          </motion.p>
 
           {/* Bio */}
           <motion.p {...fadeUp(0.45)} className="mt-3 max-w-lg text-sm text-ink-soft md:text-base leading-relaxed">
@@ -102,41 +137,6 @@ export function Hero() {
               <Sparkles className="h-4 w-4 text-gold" />
               See Ventures
             </MagneticButton>
-          </motion.div>
-
-          {/* Mobile-only Portrait (centered, appropriate size, sits between CTAs and Stats) */}
-          <motion.div
-            {...fadeIn(0.15)}
-            className="block lg:hidden mt-10 relative w-full max-w-[240px] sm:max-w-[280px] mx-auto"
-          >
-            {/* Soft glow beneath feet */}
-            <div
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[45px] w-[200px] pointer-events-none"
-              style={{
-                background: "radial-gradient(ellipse, rgba(184,57,42,0.18) 0%, transparent 70%)",
-                filter: "blur(20px)",
-              }}
-            />
-            {/* Ambient back-glow */}
-            <div
-              className="absolute inset-0 pointer-events-none opacity-20"
-              style={{
-                background: "radial-gradient(ellipse at 50% 35%, rgba(184,57,42,0.22) 0%, transparent 60%)",
-                filter: "blur(40px)",
-              }}
-            />
-            <Image
-              src="/images/ravant-portrait.png"
-              alt="S. Ravant Vignesh — AI/ML Engineer"
-              width={340}
-              height={440}
-              priority
-              quality={100}
-              className="relative z-10 h-auto w-full object-contain"
-              style={{
-                filter: "contrast(1.06) brightness(1.03) saturate(1.08) drop-shadow(0 15px 30px rgba(28,24,19,0.2))",
-              }}
-            />
           </motion.div>
 
           {/* Stats */}
