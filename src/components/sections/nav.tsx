@@ -41,12 +41,12 @@ export function Nav() {
           >
             RV
           </span>
-          <span className="hidden flex-col leading-none sm:flex">
-            <span className="font-display text-sm font-semibold tracking-tight text-ink">
+          <span className="flex flex-col leading-none">
+            <span className="font-display text-xs sm:text-sm font-semibold tracking-tight text-ink">
               S. Ravant Vignesh
             </span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-soft">
-              AI / ML Engineer
+            <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.12em] sm:tracking-[0.2em] text-cinnabar mt-0.5 font-bold">
+              Founder of YovaanAI &amp; Baarak
             </span>
           </span>
         </Link>

@@ -47,6 +47,16 @@ export function Hero() {
         {/* ── LEFT: Text column ── */}
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left order-1 lg:order-1">
 
+          {/* Top-most Header Mention on Mobile */}
+          <motion.div
+            {...fadeUp(0.02)}
+            className="block lg:hidden mb-6 text-center"
+          >
+            <span className="inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.22em] text-cinnabar bg-cinnabar/5 border border-cinnabar/20 rounded-full px-3.5 py-1.5 font-bold shadow-xs">
+              Founder of YovaanAI &amp; Baarak
+            </span>
+          </motion.div>
+
           {/* ── Mobile-only Portrait — appears FIRST before name on mobile ── */}
           <motion.div
             {...fadeIn(0.05)}
@@ -82,6 +92,25 @@ export function Hero() {
             />
           </motion.div>
 
+          {/* Venture badges right below photo on mobile */}
+          <motion.div
+            {...fadeUp(0.1)}
+            className="flex flex-wrap items-center justify-center gap-2 mb-4 lg:hidden"
+          >
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-paper-light/95 px-3 py-1 shadow-sm">
+              <span className="relative flex h-1.5 w-1.5 rounded-full bg-cinnabar" />
+              <span className="font-mono text-[9px] uppercase tracking-wider text-ink font-semibold">
+                Founder, YovaanAI
+              </span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-paper-light/95 px-3 py-1 shadow-sm">
+              <span className="relative flex h-1.5 w-1.5 rounded-full bg-gold" />
+              <span className="font-mono text-[9px] uppercase tracking-wider text-ink font-semibold">
+                Founder, Baarak
+              </span>
+            </span>
+          </motion.div>
+
           {/* Name — tight below portrait on mobile */}
           <motion.h1
             {...fadeUp(0.15)}
@@ -95,6 +124,25 @@ export function Hero() {
           >
             S. Ravant<br className="hidden sm:block" /> Vignesh
           </motion.h1>
+
+          {/* Desktop-only Founder Badges */}
+          <motion.div
+            {...fadeUp(0.2)}
+            className="hidden lg:flex items-center gap-2 mt-4"
+          >
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-paper-light/95 px-3 py-1 shadow-sm">
+              <span className="relative flex h-1.5 w-1.5 rounded-full bg-cinnabar animate-pulse" />
+              <span className="font-mono text-[10px] uppercase tracking-wider text-ink font-semibold">
+                Founder, YovaanAI
+              </span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-paper-light/95 px-3 py-1 shadow-sm">
+              <span className="relative flex h-1.5 w-1.5 rounded-full bg-gold animate-pulse" />
+              <span className="font-mono text-[10px] uppercase tracking-wider text-ink font-semibold">
+                Founder, Baarak
+              </span>
+            </span>
+          </motion.div>
 
           {/* Role tagline — right below name, closer on mobile */}
           <motion.p {...fadeUp(0.25)} className="mt-2 lg:mt-5 text-lg sm:text-xl md:text-2xl font-semibold text-ink max-w-xl">
