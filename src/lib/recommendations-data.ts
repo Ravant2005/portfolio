@@ -17,7 +17,7 @@ export const recommenders: Recommender[] = [
     name: "Siji Varghese",
     title:
       "CEO @ Leaders in Lipstick® | Executive Coach | 4×TEDx Speaker | Leadership & EI Facilitator",
-    image: "/images/recommenders/siji.jpg",
+    image: "/images/recommenders/siji.png",
     location: "Mumbai, Maharashtra, India",
     description:
       "Siji Varghese is the CEO of Leaders in Lipstick®, a global leadership development consultancy. She is an executive coach, 4× TEDx speaker, and a recognised advocate for women's leadership and emotional intelligence facilitation.",
@@ -40,7 +40,7 @@ export const recommenders: Recommender[] = [
     name: "Vandana Sachdeva",
     title:
       "Brand Strategy Head @ Leaders in Lipstick® | PR & Media | Talk Show Host | AI Adoptions Trainer | Member G100-Delhi",
-    image: "/images/recommenders/vandana.jpg",
+    image: "/images/recommenders/vandana.png",
     location: "Noida, Uttar Pradesh, India",
     description:
       "Vandana Sachdeva leads brand strategy and corporate relations at Leaders in Lipstick®. She is a multifaceted professional spanning PR & media, event management, talk show hosting, AI adoption training, and editorial leadership as Chief Editor of The Lighthouse in the Classroom.",
@@ -63,7 +63,7 @@ export const recommenders: Recommender[] = [
     name: "Jagadeesh Kanna",
     title:
       "Founder & CEO @ Vaayusastra Aerospace (IIT Madras incubated) | Author | Playwright | Film Director",
-    image: "/images/recommenders/jagadeesh.jpg",
+    image: "/images/recommenders/jagadeesh.png",
     location: "Chennai, Tamil Nadu, India",
     description:
       "Jagadeesh Kanna is an Indian stage actor, playwright, author, film director, and entrepreneur. He is the founder and CEO of Vaayusastra Aerospace, an IIT Madras RTBI-incubated educational firm that uniquely combines theatre arts with aeronautical science.",
@@ -86,7 +86,7 @@ export const recommenders: Recommender[] = [
     name: "Veera Karthik Subburaj",
     title:
       "Automotive Product Development Innovator | Mechanical Design | Patents | People Management | 9+ years",
-    image: "/images/recommenders/veera.jpg",
+    image: "/images/recommenders/veera.png",
     location: "Greater Chennai Area, India",
     description:
       "Veera Karthik Subburaj drives innovation in automotive product development with 9+ years of experience in mechanical design and development. Based at Renault Nissan Technology & Business Centre India, he holds patents and brings deep expertise in people management and bringing ideas to life.",

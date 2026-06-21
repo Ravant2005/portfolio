@@ -36,24 +36,18 @@ export function TiltCard({
     <div
       ref={ref}
       className={cn(
-        "tilt-card relative transition-transform duration-200 ease-out will-change-transform",
-        scaleOnHover && active && "scale-[1.02]",
+        "tilt-card relative transition-all duration-300 ease-out will-change-transform",
+        scaleOnHover && "hover:scale-[1.03] hover:shadow-fold-lg",
         spotlight && "spotlight-card",
         className
       )}
       style={{
-        transformStyle: "preserve-3d",
-        transform: active
-          ? `perspective(1000px) rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg)`
-          : "perspective(1000px) rotateX(0deg) rotateY(0deg)",
-        transition: "transform 200ms ease-out",
         ["--mx" as string]: `${tilt.mx}%`,
         ["--my" as string]: `${tilt.my}%`,
       }}
       {...props}
     >
-      {/* inner layer lifted toward viewer for depth */}
-      <div style={{ transform: "translateZ(40px)", transformStyle: "preserve-3d" }}>
+      <div>
         {children}
       </div>
       {glare && <span className="tilt-glare" aria-hidden />}

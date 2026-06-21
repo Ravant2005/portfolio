@@ -30,7 +30,7 @@ export function Achievements() {
           index="06"
           eyebrow="Folds that won"
           title="Achievements"
-          subtitle="Recognition that proves the folds hold — nationally and beyond."
+          subtitle="Recognition that proves the folds hold — internationally and beyond."
         />
 
         {/* Featured achievement with photo */}
@@ -62,7 +62,7 @@ export function Achievements() {
                       AGAM 9.0 · Best Agile Mind
                     </p>
                     <p className="font-display text-lg font-bold text-paper-light sm:text-xl">
-                      National Hackathon Winner — 1st Prize
+                      International Hackathon Winner — 1st Prize
                     </p>
                   </figcaption>
                 </div>

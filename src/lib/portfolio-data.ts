@@ -28,13 +28,13 @@ export const profile = {
   phone: "+91 8124672741",
   linkedin: "https://linkedin.com/in/s-ravant-vignesh",
   github: "https://github.com/Ravant2005",
-  bio: "AI/ML Engineer building production-grade multi-agent systems, LLM pipelines, and full-stack AI applications. Proficient in LangChain, RAG architectures, Hugging Face Transformers, FastAPI, and Generative AI. National Hackathon Winner (₹1,00,000) for India's first AI + Blockchain certificate authentication system.",
+  bio: "AI/ML Engineer building production-grade multi-agent systems, LLM pipelines, and full-stack AI applications. Proficient in LangChain, RAG architectures, Hugging Face Transformers, FastAPI, and Generative AI. International Hackathon Winner (₹1,00,000) for India's first AI + Blockchain certificate authentication system.",
   seeking: "AI/ML Engineer · Generative AI · AI Product Development roles",
 };
 
 export const stats = [
-  { value: "₹1,00,000", label: "National Hackathon Prize", sub: "AGAM 9.0 · 1st Place" },
-  { value: "50+", label: "Students mentored", sub: "AI & aerospace" },
+  { value: "₹1,00,000", label: "International Hackathon Prize", sub: "AGAM 9.0 · 1st Place" },
+  { value: "500+", label: "Students mentored", sub: "AI & aerospace" },
   { value: "2,000+", label: "Leaders supported", sub: "Global consultancy build" },
   { value: "90+", label: "Teams defeated", sub: "CertiChain win" },
 ];
@@ -77,15 +77,30 @@ export const ventures = [
 
 export const experience = [
   {
-    role: "Founder & AI Engineer",
-    company: "Yovaan AI",
+    role: "Founder",
+    company: "Baarak",
     place: "Chennai",
+    period: "2026 — Present",
+    summary:
+      "Creating an AI intelligence skill-training platform that analyses the live market to teach college students the skills industry actually demands, with personalized learning paths.",
+    points: [
+      "Market-aware curriculum: AI analyses the current job market to surface in-demand skills",
+      "Personalised training paths adapted to each learner's pace and gaps",
+    ],
+    icon: GraduationCap,
+  },
+  {
+    role: "Founder & CEO",
+    company: "Yovaan AI",
+    place: "India",
     period: "Jan 2026 — Present",
     summary:
-      "Designing a privacy-first memory-preservation AI platform leveraging edge AI and LLM integration, focused on long-term contextual conversational intelligence.",
+      "Building a next-generation AI system focused on human memory and conversational continuity.",
     points: [
-      "Architecting the full product stack including LLM model integration, FastAPI backend, and Supabase vector/relational database",
-      "Building toward an MVP with responsible data handling for sensitive personal memory data",
+      "Building a next-generation AI system focused on human memory and conversational continuity",
+      "Leading research and development at the intersection of AI, cognition, and human experience",
+      "Designing core architecture for a system that explores long-term interaction, context, and personalization",
+      "Driving product vision, strategy, and early-stage execution"
     ],
     icon: Rocket,
   },
@@ -95,7 +110,7 @@ export const experience = [
     place: "Chennai · IIT Madras incubated",
     period: "May 2026 — Jun 2026",
     summary:
-      "Trained and mentored 50+ students in AI and aerospace fundamentals at an IIT Madras-incubated startup, while contributing AI-driven features for a CubeSat satellite system.",
+      "Trained and mentored 500+ students in AI and aerospace fundamentals at an IIT Madras-incubated startup, while contributing AI-driven features for a CubeSat satellite system.",
     points: [
       "Built drone flight & aerodynamic calculation simulation tools deployed to the company web platform",
       "Tools are used to teach hundreds of students across programs",
@@ -121,13 +136,13 @@ export const projects = [
   {
     name: "CertiChain",
     tagline: "India's first AI + Blockchain certificate authentication",
-    award: "1st Prize · AGAM 9.0 National Hackathon · ₹1,00,000",
+    award: "1st Prize · AGAM 9.0 International Hackathon · ₹1,00,000",
     description:
       "A tamper-proof certificate issuance system storing PDFs on IPFS and anchoring SHA-256 hashes on a Polygon smart contract — eliminating forgery and centralized trust across the certificate lifecycle.",
     points: [
       "Byte-level tamper detection against IPFS originals with on-chain hash verification",
       "MetaMask wallet authentication + QR-code validation for zero-trust public verification",
-      "Defeated 90+ teams nationally — recognised as India's first AI + Blockchain authenticity system",
+      "Defeated 90+ teams internationally — recognised as India's first AI + Blockchain authenticity system",
     ],
     tags: ["Polygon", "IPFS", "Smart Contracts", "SHA-256", "MetaMask", "QR Verify"],
     icon: Link2,
@@ -253,7 +268,7 @@ export const skillGroups: SkillGroup[] = [
 export const achievements = [
   {
     title: "1st Prize — AGAM 9.0 International Entrepreneur Summit",
-    detail: "₹1,00,000 — CertiChain selected as India's first AI + Blockchain authenticity system, beating 90+ teams nationally.",
+    detail: "₹1,00,000 — CertiChain selected as India's first AI + Blockchain authenticity system, beating 90+ teams internationally.",
     icon: Trophy,
     accent: "cinnabar" as const,
     image: "/images/agam-award.jpg",

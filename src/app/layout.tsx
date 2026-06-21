@@ -23,7 +23,7 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   title: "S. Ravant Vignesh — AI/ML Engineer · Origami Unfold",
   description:
-    "Portfolio of S. Ravant Vignesh — AI/ML Engineer building generative AI, multi-agent systems, and full-stack AI products. Founder of Yovaan AI. National Hackathon Winner. Founder of Baarak.",
+    "Portfolio of S. Ravant Vignesh — AI/ML Engineer building generative AI, multi-agent systems, and full-stack AI products. Founder of Yovaan AI. International Hackathon Winner. Founder of Baarak.",
   keywords: [
     "Ravant Vignesh",
     "AI Engineer",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "S. Ravant Vignesh — AI/ML Engineer",
     description:
-      "Generative AI & Multi-Agent Systems. Founder of Yovaan AI & Baarak. National Hackathon Winner.",
+      "Generative AI & Multi-Agent Systems. Founder of Yovaan AI & Baarak. International Hackathon Winner.",
     type: "website",
   },
   twitter: {

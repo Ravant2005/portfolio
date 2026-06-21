@@ -11,7 +11,7 @@ import { profile, education } from "@/lib/portfolio-data";
 const quickFacts = [
   { icon: GraduationCap, label: "Education", value: "B.Tech AI & DS · 8.2 CGPA" },
   { icon: MapPin, label: "Based in", value: "Chennai, India" },
-  { icon: Users, label: "Mentored", value: "50+ students in AI" },
+  { icon: Users, label: "Mentored", value: "500+ students in AI" },
   { icon: Trophy, label: "Hackathon", value: "₹1,00,000 · 1st place" },
   { icon: Languages, label: "Languages", value: "Tamil · English" },
   { icon: Mail, label: "Email", value: "team.yovaanai@gmail.com" },
@@ -88,7 +88,7 @@ export function About() {
                   <span className="font-semibold text-ink">Yovaan AI</span> (privacy-first
                   memory preservation) and{" "}
                   <span className="font-semibold text-ink">Baarak</span> (AI skill-training
-                  for college students). I taught 50+ students AI &amp; aerospace at an IIT
+                  for college students). I taught 500+ students AI &amp; aerospace at an IIT
                   Madras-incubated startup, and I lead tech outreach for{" "}
                   <span className="font-semibold text-ink">Futurepreneur</span> across the
                   Andaman &amp; Nicobar Islands.
