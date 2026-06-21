@@ -42,10 +42,10 @@ export function Hero() {
       <div className="pointer-events-none absolute right-0 bottom-0 h-[600px] w-[600px] rounded-full bg-gold/8 blur-[140px]" />
 
       {/* Main container — vertically centered */}
-      <div className="relative z-10 mx-auto grid min-h-screen max-w-7xl grid-cols-1 items-center gap-0 px-6 pt-24 pb-12 sm:px-10 lg:grid-cols-2 lg:gap-12">
+      <div className="relative z-10 mx-auto grid min-h-screen max-w-7xl grid-cols-1 items-center gap-8 px-6 pt-24 pb-12 sm:px-10 lg:grid-cols-2 lg:gap-12">
 
-        {/* ── LEFT: Text ── */}
-        <div className="flex flex-col items-center text-center lg:items-start lg:text-left order-2 lg:order-1">
+        {/* ── LEFT: Text column ── */}
+        <div className="flex flex-col items-center text-center lg:items-start lg:text-left order-1 lg:order-1">
 
           {/* Availability badge */}
           <motion.div {...fadeUp(0.1)} className="mb-6 flex flex-wrap items-center justify-center lg:justify-start gap-3">
@@ -104,6 +104,41 @@ export function Hero() {
             </MagneticButton>
           </motion.div>
 
+          {/* Mobile-only Portrait (centered, appropriate size, sits between CTAs and Stats) */}
+          <motion.div
+            {...fadeIn(0.15)}
+            className="block lg:hidden mt-10 relative w-full max-w-[240px] sm:max-w-[280px] mx-auto"
+          >
+            {/* Soft glow beneath feet */}
+            <div
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[45px] w-[200px] pointer-events-none"
+              style={{
+                background: "radial-gradient(ellipse, rgba(184,57,42,0.18) 0%, transparent 70%)",
+                filter: "blur(20px)",
+              }}
+            />
+            {/* Ambient back-glow */}
+            <div
+              className="absolute inset-0 pointer-events-none opacity-20"
+              style={{
+                background: "radial-gradient(ellipse at 50% 35%, rgba(184,57,42,0.22) 0%, transparent 60%)",
+                filter: "blur(40px)",
+              }}
+            />
+            <Image
+              src="/images/ravant-portrait.png"
+              alt="S. Ravant Vignesh — AI/ML Engineer"
+              width={340}
+              height={440}
+              priority
+              quality={100}
+              className="relative z-10 h-auto w-full object-contain"
+              style={{
+                filter: "contrast(1.06) brightness(1.03) saturate(1.08) drop-shadow(0 15px 30px rgba(28,24,19,0.2))",
+              }}
+            />
+          </motion.div>
+
           {/* Stats */}
           <motion.div {...fadeUp(0.65)} className="mt-10 w-full max-w-xl">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-px rounded-2xl overflow-hidden border border-border bg-border/40 shadow-fold">
@@ -130,8 +165,8 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* ── RIGHT: Portrait ── */}
-        <div className="relative flex items-end justify-center order-1 lg:order-2 lg:h-full">
+        {/* ── RIGHT: Desktop Portrait column ── */}
+        <div className="hidden lg:flex relative items-end justify-center lg:order-2 lg:h-full">
           <motion.div {...fadeIn(0.15)} className="relative w-full flex justify-center">
             {/* Soft glow beneath feet */}
             <div

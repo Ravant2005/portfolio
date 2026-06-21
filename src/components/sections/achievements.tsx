@@ -48,10 +48,10 @@ export function Achievements() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-ink/10 to-transparent" />
 
-                  {/* Floating prize badge */}
-                  <div className="absolute right-4 top-4 flex items-center gap-2 rounded-full bg-cinnabar px-4 py-2 text-paper-light shadow-fold-lg">
-                    <span className="font-display text-base font-bold">₹1,00,000</span>
-                    <span className="font-mono text-[10px] uppercase tracking-[0.16em] opacity-80">
+                  {/* Floating prize badge (positioned on top-left to avoid covering face, and minimized on mobile) */}
+                  <div className="absolute left-4 top-4 flex items-center gap-1.5 rounded-full bg-cinnabar px-3 py-1.5 text-paper-light shadow-fold-lg sm:px-4 sm:py-2">
+                    <span className="font-display text-sm font-bold sm:text-base">₹1,00,000</span>
+                    <span className="font-mono text-[9px] uppercase tracking-[0.16em] opacity-80 sm:text-[10px]">
                       Prize
                     </span>
                   </div>
