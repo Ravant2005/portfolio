@@ -16,7 +16,7 @@ import { IntroLoader } from "@/components/origami/intro-loader";
 
 export default function Home() {
   return (
-    <div className="relative flex min-h-screen flex-col bg-paper">
+    <div className="relative flex min-h-screen flex-col bg-paper overflow-x-hidden">
       <IntroLoader />
       <ScrollProgress />
       <CursorInk />
